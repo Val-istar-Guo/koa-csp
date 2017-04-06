@@ -1,4 +1,15 @@
 {
+  "name": "koa-csp",
+  "version": "1.0.0",
+  "description": "Used to set respose header: Content-Security-Policy",
+  "main": "dist/bundle.js",
+  "jsnext:main": "src/csp.js",
+  "repository": "git@github.com:Val-istar-Guo/koa-csp.git",
+  "author": "Val.istar.Guo <Val.istar.Guo@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c"
+  },
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-eslint": "^7.2.1",
@@ -11,6 +22,6 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "jest": "^19.0.2",
-    "webpack": "^2.3.3"
+    "rollup": "^0.41.6"
   }
 }

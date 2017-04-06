@@ -4,6 +4,3 @@ node_modules
 # Error Log
 npm-debug.log*
 yarn-error.log
-
-# Complie
-dist
