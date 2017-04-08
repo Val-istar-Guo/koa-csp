@@ -93,7 +93,7 @@ var csp = function ({ enableWarn, policy = {} } = defaultParams) {
       .join(';');
 
     ctx.set('Content-Security-Policy', policyStr);
-    await next;
+    await next();
   };
 };
 
