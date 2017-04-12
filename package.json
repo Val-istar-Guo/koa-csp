@@ -1,6 +1,6 @@
 {
   "name": "koa-csp",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Used to set respose header: Content-Security-Policy",
   "main": "dist/bundle.js",
   "jsnext:main": "src/csp.js",
@@ -20,7 +20,6 @@
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-eslint": "^7.2.1",
-    "babel-jest": "^19.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.0",
     "eslint": "^3.19.0",
