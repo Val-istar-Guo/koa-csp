@@ -1,38 +1,7 @@
 import effectiveAttrValidator from './effectiveAttrValidator';
+import filterEffectiveAttr, { effectiveAttr } from './filterEffectiveAttr';
+import repareKeyWords from './repareKeyWords';
 import * as log from './log';
-
-// 有效的安全策略命名
-const effectiveAttr = [
-  'default-src',
-  'child-src',
-  'connect-src',
-  'font-src',
-  'frame-src',
-  'img-src',
-  'manifest-src',
-  'media-src',
-  'object-src',
-  'script-src',
-  'style-src',
-  'worker-src',
-];
-
-
-/**
- * @desc 过滤无效安全策略并格式化
- *       有效策略命名参照 effectiveAttr
- *
- * @return {Array} exp. [['default-src', 'self'], ['img-src', 'self']]
- */
-function filterEffectiveAttr(policy) {
-  return effectiveAttr.filter(attr => !!policy[attr])
-    .map(attr => [attr, ...policy[attr]]);
-}
-
-// 修复字符串self的书写问题 "self" => "'self'"
-function repareSelfStr(str) {
-  return str === 'self' ? '\'self\'' : str;
-}
 
 /**
  * @desc 生成一条策略的字符串
@@ -40,7 +9,7 @@ function repareSelfStr(str) {
  * @return {String} 'default-src self'
  */
 function generateSubPolicyStr(policy) {
-  return policy.map(repareSelfStr).join(' ');
+  return policy.map(repareKeyWords).join(' ');
 }
 
 
