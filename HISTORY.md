@@ -6,7 +6,10 @@
 
 ### 版本迭代说明
 
-* v 1.0.7
+* v 1.0.10
+  * [#] use `prepublish` instead of `prepublishOnly` to ensure run `rollup -c` before publish, add publish the floder `dist/` after run `rollup -c`.
+* v 1.0.7 ~ 1.0.9 [Problem version;Don't Use it]
+  * [#] test why prepublishOnly run `rollup -c` before publish,but was not publish `dist/` file. this lead to many problem version.
   * [+] add more introduce to README.md
   * [+] add HISTORY.md
 * v 1.0.6
