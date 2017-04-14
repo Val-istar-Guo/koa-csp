@@ -37,7 +37,7 @@ function validatorPolicy(policy) {
  *
  * @param customPolicy {Object} 自定义安全策略 exp. { 'img-src': ['self'] };
  */
-export default function ({ enableWarn, policy = {} } = defaultParams) {
+export default function ({ enableWarn = true, policy = {} } = defaultParams) {
   return async (ctx, next) => {
     // Warn invalid Policy Setting
     if (enableWarn) validatorPolicy(policy);

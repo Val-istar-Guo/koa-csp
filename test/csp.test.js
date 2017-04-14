@@ -47,7 +47,7 @@ test('invalid custom setting csp(opts) test', () => {
 
   const expectStr = 'script-src script.example.com';
 
-  return csp({ policy })(ctx, async () => {}).then(() => {
+  return csp({ enableWarn: false, policy })(ctx, async () => {}).then(() => {
     expect(header['Content-Security-Policy']).toBe(expectStr);
   });
 });

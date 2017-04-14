@@ -6,6 +6,9 @@
 
 ### 版本迭代说明
 
+* v 1.0.11
+  * [#] FIXBUG: README.md Usage example code error.
+  * [+] set param enableWarn default true.
 * v 1.0.10
   * [#] use `prepublish` instead of `prepublishOnly` to ensure run `rollup -c` before publish, add publish the floder `dist/` after run `rollup -c`.
 * v 1.0.7 ~ 1.0.9 [Problem version;Don't Use it]
