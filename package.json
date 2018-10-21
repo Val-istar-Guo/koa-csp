@@ -14,20 +14,53 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
-    "prepublish": "npm run build"
+    "build": "npm run clean & rollup -c",
+    "test": "ava",
+    "updateSnapshots": "ava -u",
+    "upgrade": "mili upgrade",
+    "clean": "rm -rf ./dist/*",
+    "prepublishOnly": "npm test; npm run build",
+    "ca": "git add -A && git-cz -av",
+    "commit": "git-cz",
+    "release": "standard-version",
+    "release:alpha": "standard-version --prerelease alpha",
+    "postpublish": "git push"
   },
   "devDependencies": {
-    "babel-core": "^6.24.0",
-    "babel-eslint": "^7.2.1",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-es2015": "^6.24.0",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3",
-    "jest": "^19.0.2",
-    "rollup": "^0.41.6"
-  }
+    "@commitlint/cli": "^7.2.0",
+    "@commitlint/config-conventional": "^7.1.2",
+    "ava": "^1.0.0-beta.4",
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "commitizen": "^3.0.2",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.0.1",
+    "mili": "1.1.2",
+    "rollup": "^0.58.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-json": "^3.0.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "standard-version": "^4.4.0"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!**/macros.js",
+      "!**/*.macros.js"
+    ],
+    "sources": [
+      "src/**/*.js"
+    ],
+    "failFast": true,
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ]
+  },
+  "dependencies": {}
 }

@@ -1,5 +1,8 @@
-export default {
-  entry: 'src/csp.js',
-  format: 'cjs',
-  dest: 'dist/bundle.js',
-};
+// mili upgrade type: cover
+import { compiler } from './build.config'
+
+
+export default compiler({
+  input: 'src/index.js',
+  output: { file: 'dist/bundle.js' },
+})

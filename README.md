@@ -1,8 +1,12 @@
-# KOA-CSP
+<!-- mili upgrade type: cover -->
+# koa-csp
 
-[![npm](https://img.shields.io/npm/v/koa-csp.svg?style=flat-square)](https://www.npmjs.com/package/koa-csp)
-[![npm](https://img.shields.io/npm/dm/koa-csp.svg?style=flat-square)](https://www.npmjs.com/package/koa-csp)
+[![version](https://img.shields.io/npm/v/koa-csp.svg?style=flat-square)](https://www.npmjs.com/package/koa-csp)
+[![downloads](https://img.shields.io/npm/dm/koa-csp.svg?style=flat-square)](https://www.npmjs.com/package/koa-csp)
+[![license](https://img.shields.io/npm/l/koa-csp.svg)](https://www.npmjs.com/package/koa-csp)
+[![dependencies](https://img.shields.io/david/Val-istar-Guo/koa-csp.svg?style=flat-square)](https://www.npmjs.com/package/koa-csp)
 
+<!-- custom -->
 This is a koa2 middleware used to set response header `Content-Security-Policy`
 
 [What is CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
@@ -51,3 +55,4 @@ app.use(csp({
 }));
 // OUTPUT: Content-Security-Policy: default-src 'self' 'none' 'unsafe-inline' 'unsafe-eval' example.com; img-src 'self'
 ```
+<!-- custom -->
