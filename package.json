@@ -1,6 +1,6 @@
 {
   "name": "koa-csp",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Used to set respose header: Content-Security-Policy",
   "main": "dist/bundle.js",
   "jsnext:main": "src/csp.js",
