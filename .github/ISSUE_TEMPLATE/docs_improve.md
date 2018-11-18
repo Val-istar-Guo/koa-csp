@@ -1,9 +1,9 @@
-<!-- mili upgrade type: cover -->
 ---
 name: Document improve
 about: Improve document quality or improve document content
 
 ---
+<!-- Please delete unused section -->
 
 **Is a part of the document confusing? Please describe.**
 Document path or hyperlink or github permanent link.

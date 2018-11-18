@@ -1,4 +1,3 @@
-<!-- mili upgrade type: cover -->
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge

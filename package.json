@@ -24,7 +24,8 @@
     "commit": "git-cz",
     "release": "standard-version",
     "release:alpha": "standard-version --prerelease alpha",
-    "postpublish": "git push"
+    "postpublish": "git push",
+    "release:first": "standard-version --first-release"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.0",
@@ -39,7 +40,7 @@
     "commitizen": "^3.0.2",
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^1.0.1",
-    "mili": "1.1.2",
+    "mili": "1.6.0",
     "rollup": "^0.58.0",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^9.1.0",
