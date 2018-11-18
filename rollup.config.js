@@ -1,8 +1,10 @@
-// mili upgrade type: cover
 import { compiler } from './build.config'
 
 
-export default compiler({
+export default {
   input: 'src/index.js',
-  output: { file: 'dist/bundle.js' },
-})
+  output: {
+    file: 'dist/bundle.js',
+    format: 'cjs',
+  },
+}
