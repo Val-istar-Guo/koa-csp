@@ -24,7 +24,7 @@ yarn add koa-csp
 
 ```javascript
 import Koa from 'koa';
-import csp from 'csp';
+import csp from 'koa-csp';
 
 const app = new Koa();
 
