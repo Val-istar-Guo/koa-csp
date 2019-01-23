@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 export function warn(str) {
-  console.warn(str);
+  console.warn(`[kpa-csp warn] ${str}`);
 }
 
 export function info(str) {

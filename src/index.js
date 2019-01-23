@@ -1,19 +1,8 @@
-import effectiveAttrValidator from './effectiveAttrValidator';
-import filterEffectiveAttr, { effectiveAttr } from './filterEffectiveAttr';
-import repareKeyWords from './repareKeyWords';
-import * as log from './log';
-
-/**
- * @desc 生成一条策略的字符串
- *
- * @return {String} 'default-src self'
- */
-function generateSubPolicyStr(policy) {
-  return policy.map(repareKeyWords).join(' ');
-}
+import validatePolicy from './validate-policy'
+import formatPolicy from './format-policy'
 
 
-// 默认配置-只允许该域名下内容
+// default config
 const defaultParams = {
   // 是否显示警告信息
   enableWarn: true,
@@ -22,30 +11,19 @@ const defaultParams = {
   },
 };
 
-function validatorPolicy(policy) {
-  if (Object.keys(policy).length === 0) {
-    log.warn('⚠️CSP CONFIG WARNING: Empty Policy');
-  }
-
-  effectiveAttrValidator(policy, effectiveAttr, (invalidAttrs) => {
-    log.warn(`⚠️CSP CONFIG WARNING: Invalid Policy Name[${invalidAttrs.join(', ')}]`);
-  });
-}
-
 /**
- * @desc 设置响应头 Content-Security-Policy
- *
- * @param customPolicy {Object} 自定义安全策略 exp. { 'img-src': ['self'] };
+ * @desc Set Content-Security-Policy
+ * @param {Object} param
+ * @param {bool} param.enableWarn enable warn log
+ * @param {Object} param.policy csp policy
  */
 export default function ({ enableWarn = true, policy = {} } = defaultParams) {
   return async (ctx, next) => {
-    // Warn invalid Policy Setting
-    if (enableWarn) validatorPolicy(policy);
+    if (enableWarn) validatePolicy(policy);
 
-    // generate http header string
-    const policyStr = filterEffectiveAttr(policy)
-      .map(generateSubPolicyStr)
-      .join(';');
+    const policyStr = formatPolicy(policy)
+      .map(directive => directive.join(' '))
+      .join(';')
 
     ctx.set('Content-Security-Policy', policyStr);
     await next();
