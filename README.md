@@ -4,6 +4,7 @@
 [![downloads](https://img.shields.io/npm/dm/koa-csp.svg?style=flat-square)](https://www.npmjs.com/package/koa-csp)
 [![license](https://img.shields.io/npm/l/koa-csp.svg?style=flat-square)](https://www.npmjs.com/package/koa-csp)
 [![dependencies](https://img.shields.io/david/Val-istar-Guo/koa-csp.svg?style=flat-square)](https://www.npmjs.com/package/koa-csp)
+[![coveralls](https://img.shields.io/coveralls/github/Val-istar-Guo/koa-csp.svg?style=flat-square)](https://coveralls.io/github/Val-istar-Guo/koa-csp)
 
 <!-- custom -->
 This is a koa2 middleware used to set response header `Content-Security-Policy`
