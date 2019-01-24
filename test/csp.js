@@ -1,5 +1,6 @@
 import csp from '../src'
 import test from 'ava'
+import sinon from 'sinon'
 
 
 test('default option', async t => {
@@ -10,8 +11,10 @@ test('default option', async t => {
     },
   }
 
-  await csp()(ctx, async () => {})
+  const callback = sinon.fake()
+  await csp()(ctx, async () => callback())
 
+  t.true(callback.calledOnce)
   t.is(header['Content-Security-Policy'], "default-src 'self'")
 });
 
