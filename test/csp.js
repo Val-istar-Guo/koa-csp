@@ -2,7 +2,7 @@ import csp from '../src'
 import test from 'ava'
 
 
-test('default csp() test', async t => {
+test('default option', async t => {
   const header = {}
   const ctx = {
     set(key, val) {

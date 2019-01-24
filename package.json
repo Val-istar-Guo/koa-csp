@@ -16,7 +16,7 @@
   "scripts": {
     "build": "npm run clean & rollup -c",
     "test": "ava",
-    "report": "nyc report --reporter=html",
+    "report": "nyc npm test",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "updateSnapshots": "ava -u",
     "clean": "rm -rf ./dist/*",
@@ -48,6 +48,7 @@
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-json": "^3.0.0",
     "rollup-plugin-node-resolve": "^3.3.0",
+    "sinon": "^7.2.3",
     "standard-version": "^4.4.0"
   },
   "ava": {
