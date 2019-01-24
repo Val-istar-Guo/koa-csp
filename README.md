@@ -54,5 +54,15 @@ app.use(csp({
   },
 }));
 // OUTPUT: Content-Security-Policy: default-src 'self' 'none' 'unsafe-inline' 'unsafe-eval' example.com; img-src 'self'
+
+// CamelCase Support
+app.use(csp({
+  policy: {
+    defaultSrc: ['self', 'none', 'unsafe-inline', 'unsafe-eval', 'example.com'],
+    // you can alse add single quotes manually
+    imgSrc: ["'self'"],
+  },
+}));
+// OUTPUT: Content-Security-Policy: default-src 'self' 'none' 'unsafe-inline' 'unsafe-eval' example.com; img-src 'self'
 ```
 <!-- custom -->

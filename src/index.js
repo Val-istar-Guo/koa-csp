@@ -14,8 +14,21 @@ const defaultParams = {
 /**
  * @desc Set Content-Security-Policy
  * @param {Object} param
- * @param {bool} param.enableWarn enable warn log
+ * @param {boolean} param.enableWarn enable warn log
  * @param {Object} param.policy csp policy
+ * @param {string[]} param.policy.defaultSrc
+ * @param {string[]} param.policy.childSrc
+ * @param {string[]} param.policy.connectSrc
+ * @param {string[]} param.policy.fontSrc
+ * @param {string[]} param.policy.frameSrc
+ * @param {string[]} param.policy.imgSrc
+ * @param {string[]} param.policy.manifestSrc
+ * @param {string[]} param.policy.mediaSrc
+ * @param {string[]} param.policy.objectSrc
+ * @param {string[]} param.policy.prefetchSrc
+ * @param {string[]} param.policy.styleSrc
+ * @param {string[]} param.policy.webrtcSrc
+ * @param {string[]} param.policy.workerSrc
  */
 export default function ({ enableWarn = true, policy = {} } = defaultParams) {
   return async (ctx, next) => {

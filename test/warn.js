@@ -39,3 +39,22 @@ test.serial('empty policy warn', async t => {
   t.true(console.warn.calledOnce)
   t.true(console.warn.calledWithMatch('[kpa-csp warn] Empty Policy'))
 })
+
+test.serial('camel case no warn', async t => {
+  const header = {};
+  const ctx = {
+    set(key, val) {
+      header[key] = val
+    },
+  }
+
+  const policy = {
+    imgSrc: ['self', 'img.example.com', '*.img.example.com'],
+    scriptSrc: ['script.example.com'],
+  }
+
+  sinon.replace(console, 'warn', sinon.fake());
+  await csp({ enableWarn: true, policy })(ctx, async () => {})
+
+  t.false(console.warn.called)
+})

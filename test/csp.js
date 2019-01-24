@@ -39,6 +39,26 @@ test('custom setting csp(opts) test', async t => {
   t.is(header['Content-Security-Policy'], expectStr)
 })
 
+test('camel case policy', async t => {
+  const header = {};
+  const ctx = {
+    set(key, val) {
+      header[key] = val
+    },
+  }
+
+  const policy = {
+    imgSrc: ['self', 'img.example.com', '*.img.example.com'],
+    scriptSrc: ['script.example.com'],
+  }
+
+  const expectStr = "img-src 'self' img.example.com *.img.example.com;script-src script.example.com"
+
+  await csp({ enableWarn: false, policy })(ctx, async () => {})
+
+  t.is(header['Content-Security-Policy'], expectStr)
+})
+
 test('invalid custom setting csp(opts) test', async t => {
   const header = {}
   const ctx = {
