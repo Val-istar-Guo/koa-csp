@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/Val-istar-Guo/koa-csp/compare/v1.0.14...v1.1.0) (2019-01-24)
+
+
+### Features
+
+* add new directives: prefetch-src, webrtc-src ([b481212](https://github.com/Val-istar-Guo/koa-csp/commit/b481212))
+* support came-case naming ([6644435](https://github.com/Val-istar-Guo/koa-csp/commit/6644435))
+
+
+
 <a name="1.0.14"></a>
 ## [1.0.14](https://github.com/Val-istar-Guo/koa-csp/compare/v1.0.13...v1.0.14) (2018-12-02)
 
