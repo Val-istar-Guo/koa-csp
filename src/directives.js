@@ -8,7 +8,9 @@ export default [
   'manifest-src',
   'media-src',
   'object-src',
+  'prefetch-src',
   'script-src',
   'style-src',
+  'webrtc-src',
   'worker-src',
 ]
