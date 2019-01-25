@@ -35,7 +35,7 @@ test.serial('empty policy warn', async t => {
   }
 
   sinon.replace(console, 'warn', sinon.fake());
-  await csp({ enableWarn: true, policy: {} })(ctx, async () => {})
+  await csp({ policy: {} })(ctx, async () => {})
   t.true(console.warn.calledOnce)
   t.true(console.warn.calledWithMatch('[kpa-csp warn] Empty Policy'))
 })

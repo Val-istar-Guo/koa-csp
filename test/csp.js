@@ -18,6 +18,18 @@ test('default option', async t => {
   t.is(header['Content-Security-Policy'], "default-src 'self'")
 });
 
+test('default option.policy', async t => {
+  const header = {}
+  const ctx = {
+    set(key, val) {
+      header[key] = val
+    },
+  }
+
+  await csp({ enableWarn: false })(ctx, async () => {})
+
+  t.is(header['Content-Security-Policy'], "default-src 'self'")
+})
 
 test('custom setting csp(opts) test', async t => {
   const header = {};

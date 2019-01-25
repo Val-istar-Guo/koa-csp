@@ -30,7 +30,7 @@ const defaultParams = {
  * @param {string[]} param.policy.webrtcSrc
  * @param {string[]} param.policy.workerSrc
  */
-export default function ({ enableWarn = true, policy = {} } = defaultParams) {
+export default function ({ enableWarn = defaultParams.enableWarn, policy = defaultParams.policy } = defaultParams) {
   return async (ctx, next) => {
     if (enableWarn) validatePolicy(policy);
 
