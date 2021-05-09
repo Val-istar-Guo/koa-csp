@@ -8,11 +8,59 @@
 
 
 
-<!-- description --><!-- description -->
+<!-- description -->
+This is a koa2 middleware used to set response header `Content-Security-Policy`.
+
+[What is CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+<!-- description -->
 
 ## Usage
 
-<!-- usage --><!-- usage -->
+<!-- usage -->
+```javascript
+import Koa from 'koa';
+import csp from 'koa-csp';
+
+
+const app = new Koa();
+app.use(csp());
+
+// It is equivalent to
+app.use(csp({
+  enableWarn: true,
+  policy: { 'default-src': ['self'] },
+}));
+
+// Add you can add more policy
+app.use(csp({
+  enableWarn: true,
+  policy: {
+    'img-src': ['self', 'img.example.com'],
+    'script-src': ['script.example.com', '*.script.example.com'],
+  },
+}));
+
+// some key words will be auto add single quotes
+app.use(csp({
+  policy: {
+    'default-src': ['self', 'none', 'unsafe-inline', 'unsafe-eval', 'example.com'],
+    // you can alse add single quotes manually
+    'img-src': ["'self'"],
+  },
+}));
+// OUTPUT: Content-Security-Policy: default-src 'self' 'none' 'unsafe-inline' 'unsafe-eval' example.com; img-src 'self'
+
+// CamelCase Support
+app.use(csp({
+  policy: {
+    defaultSrc: ['self', 'none', 'unsafe-inline', 'unsafe-eval', 'example.com'],
+    // you can alse add single quotes manually
+    imgSrc: ["'self'"],
+  },
+}));
+// OUTPUT: Content-Security-Policy: default-src 'self' 'none' 'unsafe-inline' 'unsafe-eval' example.com; img-src 'self'
+```
+<!-- usage -->
 
 <!-- addition --><!-- addition -->
 
