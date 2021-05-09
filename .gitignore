@@ -1,5 +1,7 @@
-# mili upgrade type: cover
+# Mac
 .DS_Store
+
+# Node
 node_modules
 
 # Error Log
@@ -7,6 +9,8 @@ npm-debug.log*
 yarn-error.log
 
 # Complie
+/lib
+/es
 dist/
 
 # Editor
@@ -20,3 +24,6 @@ yarn.lock
 # Test
 coverage
 .nyc_output
+
+# mili upgrade type: cover
+

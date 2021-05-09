@@ -1,10 +1,11 @@
 import directives from './directives'
+import { Policy } from './interface/policy'
 import * as log from './log'
 import toCamelCase from './to-camel-case'
 
 const directivesWithCamelCase = directives.concat(directives.map(toCamelCase))
 
-export default policy => {
+export default function(policy: Policy): boolean {
   const keys = Object.keys(policy)
   let valid = true
 
