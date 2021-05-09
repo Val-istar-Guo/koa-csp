@@ -14,6 +14,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="1.0.14"></a>
+### [1.1.1](https://www.github.com/Val-istar-Guo/koa-csp/compare/v1.1.0...v1.1.1) (2021-05-09)
+
+
+### Bug Fixes
+
+* middleware need not async ([52c77ff](https://www.github.com/Val-istar-Guo/koa-csp/commit/52c77ff029740526669203b39b2da68466efbaba)), closes [#5](https://www.github.com/Val-istar-Guo/koa-csp/issues/5)
+
 ## [1.0.14](https://github.com/Val-istar-Guo/koa-csp/compare/v1.0.13...v1.0.14) (2018-12-02)
 
 
