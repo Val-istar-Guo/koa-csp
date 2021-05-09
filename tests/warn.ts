@@ -1,6 +1,6 @@
 import csp from '../src'
 import test from 'ava'
-import sinon from 'sinon'
+import * as sinon from 'sinon'
 
 
 test.afterEach(() => {
@@ -20,10 +20,10 @@ test.serial('illegal directive warn', async t => {
     'script-src': ['script.example.com'],
   }
 
-  sinon.replace(console, 'warn', sinon.fake());
-  await csp({ enableWarn: true, policy })(ctx, async () => {})
-  t.true(console.warn.calledOnce)
-  t.true(console.warn.calledWithMatch('[kpa-csp warn] Invalid Policy Name: image-src'))
+  sinon.replace(console, 'warn', sinon.fake())
+  await csp({ enableWarn: true, policy })(ctx, async a => a)
+  t.true(console.warn['calledOnce'])
+  t.true(console.warn['calledWithMatch']('[kpa-csp warn] Invalid Policy Name: image-src'))
 })
 
 test.serial('empty policy warn', async t => {
@@ -34,14 +34,14 @@ test.serial('empty policy warn', async t => {
     },
   }
 
-  sinon.replace(console, 'warn', sinon.fake());
-  await csp({ policy: {} })(ctx, async () => {})
-  t.true(console.warn.calledOnce)
-  t.true(console.warn.calledWithMatch('[kpa-csp warn] Empty Policy'))
+  sinon.replace(console, 'warn', sinon.fake())
+  await csp({ policy: {} })(ctx, async a => a)
+  t.true(console.warn['calledOnce'])
+  t.true(console.warn['calledWithMatch']('[kpa-csp warn] Empty Policy'))
 })
 
 test.serial('camel case no warn', async t => {
-  const header = {};
+  const header = {}
   const ctx = {
     set(key, val) {
       header[key] = val
@@ -53,8 +53,8 @@ test.serial('camel case no warn', async t => {
     scriptSrc: ['script.example.com'],
   }
 
-  sinon.replace(console, 'warn', sinon.fake());
-  await csp({ enableWarn: true, policy })(ctx, async () => {})
+  sinon.replace(console, 'warn', sinon.fake())
+  await csp({ enableWarn: true, policy })(ctx, async a => a)
 
-  t.false(console.warn.called)
+  t.false(console.warn['called'])
 })

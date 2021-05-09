@@ -2,8 +2,8 @@
   "name": "koa-csp",
   "version": "1.1.0",
   "description": "Used to set respose header: Content-Security-Policy",
-  "main": "dist/bundle.js",
-  "module": "src/index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "repository": "git@github.com:Val-istar-Guo/koa-csp.git",
   "author": "Val.istar.Guo <Val.istar.Guo@gmail.com>",
   "keywords": [
@@ -14,57 +14,58 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "npm run clean & rollup -c",
+    "build": "npm run build:lib && npm run build:es",
     "test": "ava",
-    "report": "nyc npm test",
+    "report": "nyc --reporter=html --reporter=text-summary --skip-full ava",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "updateSnapshots": "ava -u",
-    "clean": "rm -rf ./dist/*",
-    "prepublishOnly": "npm test; npm run build",
+    "clean": "rm -rf ./lib/*",
+    "prepublishOnly": "npm test && npm run build && pinst --disable",
     "ca": "git add -A && git-cz -av",
     "commit": "git-cz",
-    "release": "standard-version",
+    "release": "standard-version --no-verify",
     "release:alpha": "standard-version --prerelease alpha",
-    "postpublish": "git push",
-    "release:first": "standard-version --first-release"
+    "postpublish": "pinst --enable && git push",
+    "release:first": "standard-version --first-release",
+    "test:debug": "ava --verbose",
+    "test:update": "ava -u",
+    "ci": "git-cz",
+    "prebuild": "npm run clean",
+    "build:es": "ttsc -p build/tsconfig.es.json && npm run copyfile:es",
+    "build:lib": "ttsc -p build/tsconfig.lib.json && npm run copyfile:lib",
+    "watch": "NODE_ENV=development ttsc -p build/tsconfig.lib.json -w",
+    "copyfile:es": "copyfiles -e \"@(build|es|lib|node_modules|tests|doc)/**/*.!(ts)\" -e \"@(README.md|CHANGELOG.md|ava.config.js|backers.md)\" \"**/*.!(ts)\" es",
+    "copyfile:lib": "copyfiles -e \"@(build|es|lib|node_modules|tests|doc)/**/*.!(ts)\" -e \"@(README.md|CHANGELOG.md|ava.config.js|backers.md)\" \"**/*.!(ts)\" lib",
+    "postinstall": "is-ci || husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.2.0",
-    "@commitlint/config-conventional": "^7.1.2",
-    "ava": "^1.0.0-beta.4",
-    "babel-core": "^6.26.0",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-register": "^6.26.0",
-    "commitizen": "^3.0.2",
-    "coveralls": "^3.0.2",
-    "cz-conventional-changelog": "^2.1.0",
-    "husky": "^1.0.1",
-    "nyc": "^13.1.0",
-    "rollup": "^0.58.0",
-    "rollup-plugin-babel": "^3.0.3",
-    "rollup-plugin-commonjs": "^9.1.0",
-    "rollup-plugin-json": "^3.0.0",
-    "rollup-plugin-node-resolve": "^3.3.0",
-    "sinon": "^7.2.3",
-    "standard-version": "^4.4.0"
+    "@commitlint/cli": "^12.0.0",
+    "@commitlint/config-conventional": "^12.0.0",
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "ava": "^3.10.1",
+    "commitizen": "^4.2.3",
+    "copyfiles": "^2.4.1",
+    "coveralls": "^3.1.0",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^7.20.0",
+    "husky": "^5.1.1",
+    "is-ci": "^2.0.0",
+    "koa": "^2.13.1",
+    "lint-staged": "^10.5.4",
+    "mili": "^3.10.2",
+    "nyc": "^15.1.0",
+    "pinst": "^2.1.6",
+    "sinon": "^9.2.4",
+    "standard-version": "^9.1.1",
+    "ts-node": "^9.1.1",
+    "ttypescript": "^1.5.12",
+    "typescript": "^4.2.2",
+    "typescript-transform-paths": "^2.2.3"
   },
-  "ava": {
-    "files": [
-      "test/**/*.js",
-      "!**/macros.js",
-      "!**/*.macros.js"
-    ],
-    "sources": [
-      "src/**/*.js"
-    ],
-    "failFast": true,
-    "require": [
-      "babel-register",
-      "babel-polyfill"
-    ]
-  },
-  "dependencies": {}
+  "types": "lib/index.d.ts",
+  "dependencies": {
+    "@types/node": "^14.14.31"
+  }
 }

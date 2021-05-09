@@ -1,5 +1,7 @@
+import { Middleware } from 'koa'
 import validatePolicy from './validate-policy'
 import formatPolicy from './format-policy'
+import { Policy } from './interface/policy'
 
 
 // default config
@@ -9,7 +11,12 @@ const defaultParams = {
   policy: {
     'default-src': ['self'],
   },
-};
+}
+
+interface Options {
+  enableWarn?: boolean
+  policy?: Policy
+}
 
 /**
  * @desc Set Content-Security-Policy
@@ -30,15 +37,15 @@ const defaultParams = {
  * @param {string[]} param.policy.webrtcSrc
  * @param {string[]} param.policy.workerSrc
  */
-export default function ({ enableWarn = defaultParams.enableWarn, policy = defaultParams.policy } = defaultParams) {
-  return async (ctx, next) => {
-    if (enableWarn) validatePolicy(policy);
+export default function({ enableWarn = defaultParams.enableWarn, policy = defaultParams.policy }: Options = defaultParams): Middleware {
+  return async(ctx, next) => {
+    if (enableWarn) validatePolicy(policy)
 
     const policyStr = formatPolicy(policy)
       .map(directive => directive.join(' '))
       .join(';')
 
-    ctx.set('Content-Security-Policy', policyStr);
-    await next();
-  };
+    ctx.set('Content-Security-Policy', policyStr)
+    await next()
+  }
 }

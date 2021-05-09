@@ -6,63 +6,23 @@
 [![dependencies](https://img.shields.io/david/Val-istar-Guo/koa-csp.svg?style=flat-square)](https://www.npmjs.com/package/koa-csp)
 [![coveralls](https://img.shields.io/coveralls/github/Val-istar-Guo/koa-csp.svg?style=flat-square)](https://coveralls.io/github/Val-istar-Guo/koa-csp)
 
-<!-- custom -->
-This is a koa2 middleware used to set response header `Content-Security-Policy`
 
-[What is CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 
-## Install
-
-```
-npm install koa-csp
-```
-
-```
-yarn add koa-csp
-```
+<!-- description --><!-- description -->
 
 ## Usage
 
-```javascript
-import Koa from 'koa';
-import csp from 'koa-csp';
+<!-- usage --><!-- usage -->
 
-const app = new Koa();
+<!-- addition --><!-- addition -->
 
-app.use(csp());
-// It is equivalent to
-app.use(csp({
-  enableWarn: true,
-  policy: { 'default-src': ['self'] },
-}));
+## Sponsor
 
-// Add you can add more policy
-app.use(csp({
-  enableWarn: true,
-  policy: {
-    'img-src': ['self', 'img.example.com'],
-    'script-src': ['script.example.com', '*.script.example.com'],
-  },
-}));
+Support code development on patron.
 
-// some key words will be auto add single quotes
-app.use(csp({
-  policy: {
-    'default-src': ['self', 'none', 'unsafe-inline', 'unsafe-eval', 'example.com'],
-    // you can alse add single quotes manually
-    'img-src': ["'self'"],
-  },
-}));
-// OUTPUT: Content-Security-Policy: default-src 'self' 'none' 'unsafe-inline' 'unsafe-eval' example.com; img-src 'self'
+[![patron](https://c5.patreon.com/external/logo/become_a_patron_button@2x.png)](https://www.patreon.com/bePatron?u=22478507)
 
-// CamelCase Support
-app.use(csp({
-  policy: {
-    defaultSrc: ['self', 'none', 'unsafe-inline', 'unsafe-eval', 'example.com'],
-    // you can alse add single quotes manually
-    imgSrc: ["'self'"],
-  },
-}));
-// OUTPUT: Content-Security-Policy: default-src 'self' 'none' 'unsafe-inline' 'unsafe-eval' example.com; img-src 'self'
-```
-<!-- custom -->
+## Contributing & Development
+
+If there is any doubt, it is very welcome to discuss the issue together.
+Please read [Contributor Covenant Code of Conduct](.github/CODE_OF_CONDUCT.md) and [CONTRIBUTING](.github/CONTRIBUTING.md).
