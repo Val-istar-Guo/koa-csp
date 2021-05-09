@@ -38,7 +38,7 @@ interface Options {
  * @param {string[]} param.policy.workerSrc
  */
 export default function({ enableWarn = defaultParams.enableWarn, policy = defaultParams.policy }: Options = defaultParams): Middleware {
-  return async(ctx, next) => {
+  return (ctx, next) => {
     if (enableWarn) validatePolicy(policy)
 
     const policyStr = formatPolicy(policy)
@@ -46,6 +46,6 @@ export default function({ enableWarn = defaultParams.enableWarn, policy = defaul
       .join(';')
 
     ctx.set('Content-Security-Policy', policyStr)
-    await next()
+    return next()
   }
 }
