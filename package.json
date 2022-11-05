@@ -1,6 +1,6 @@
 {
   "name": "koa-csp",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Used to set respose header: Content-Security-Policy",
   "main": "lib/index.js",
   "module": "es/index.js",
