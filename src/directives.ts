@@ -13,4 +13,5 @@ export default [
   'style-src',
   'webrtc-src',
   'worker-src',
+  'frame-ancestors',
 ]

@@ -29,6 +29,7 @@ interface Options {
  * @param {string[]} param.policy.fontSrc
  * @param {string[]} param.policy.frameSrc
  * @param {string[]} param.policy.imgSrc
+ * @param {string[]} param.policy.frameAncestors
  * @param {string[]} param.policy.manifestSrc
  * @param {string[]} param.policy.mediaSrc
  * @param {string[]} param.policy.objectSrc
