@@ -14,6 +14,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="1.0.14"></a>
+## [1.2.0](https://www.github.com/Val-istar-Guo/koa-csp/compare/v1.1.1...v1.2.0) (2022-11-22)
+
+
+### Features
+
+* add frame-ancestors directive ([dd9746d](https://www.github.com/Val-istar-Guo/koa-csp/commit/dd9746d4ee6007954ca82162cabc6f66466a6014))
+
 ### [1.1.1](https://www.github.com/Val-istar-Guo/koa-csp/compare/v1.1.0...v1.1.1) (2021-05-09)
 
 
