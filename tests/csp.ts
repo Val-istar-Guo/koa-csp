@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import csp from '../src'
 import test from 'ava'
 import * as sinon from 'sinon'
@@ -5,14 +6,14 @@ import * as sinon from 'sinon'
 
 test('default option', async t => {
   const header = {}
-  const ctx = {
+  const ctx: any = {
     set(key, val) {
       header[key] = val
     },
   }
 
   const callback = sinon.fake()
-  await csp()(ctx, async() => callback())
+  await csp()(ctx, () => callback())
 
   t.true(callback.calledOnce)
   t.is(header['Content-Security-Policy'], "default-src 'self'")
@@ -20,20 +21,20 @@ test('default option', async t => {
 
 test('default option.policy', async t => {
   const header = {}
-  const ctx = {
+  const ctx: any = {
     set(key, val) {
       header[key] = val
     },
   }
 
-  await csp({ enableWarn: false })(ctx, async a => a)
+  await csp({ enableWarn: false })(ctx, () => Promise.resolve())
 
   t.is(header['Content-Security-Policy'], "default-src 'self'")
 })
 
 test('custom setting csp(opts) test', async t => {
   const header = {}
-  const ctx = {
+  const ctx: any = {
     set(key, val) {
       header[key] = val
     },
@@ -46,14 +47,14 @@ test('custom setting csp(opts) test', async t => {
 
   const expectStr = "img-src 'self' img.example.com *.img.example.com;script-src script.example.com"
 
-  await csp({ policy })(ctx, async a => a)
+  await csp({ policy })(ctx, () => Promise.resolve())
 
   t.is(header['Content-Security-Policy'], expectStr)
 })
 
 test('camel case policy', async t => {
   const header = {}
-  const ctx = {
+  const ctx: any = {
     set(key, val) {
       header[key] = val
     },
@@ -66,14 +67,14 @@ test('camel case policy', async t => {
 
   const expectStr = "img-src 'self' img.example.com *.img.example.com;script-src script.example.com"
 
-  await csp({ enableWarn: false, policy })(ctx, async a => a)
+  await csp({ enableWarn: false, policy })(ctx, () => Promise.resolve())
 
   t.is(header['Content-Security-Policy'], expectStr)
 })
 
 test('invalid custom setting csp(opts) test', async t => {
   const header = {}
-  const ctx = {
+  const ctx: any = {
     set(key, val) {
       header[key] = val
     },
@@ -86,6 +87,6 @@ test('invalid custom setting csp(opts) test', async t => {
 
   const expectStr = 'script-src script.example.com'
 
-  await csp({ enableWarn: false, policy })(ctx, async a => a)
+  await csp({ enableWarn: false, policy })(ctx, () => Promise.resolve())
   t.is(header['Content-Security-Policy'], expectStr)
 })
