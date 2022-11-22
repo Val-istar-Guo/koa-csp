@@ -5,19 +5,20 @@ It's an independent project with its ongoing development made possible entirely 
 If you'd like to join them, please consider [become a backer or sponsor on Patreon](https://www.patreon.com/val_istar_guo).
 
 <h2 align="center">Gold Sponsors</h2>
-<!-- gold-sponsors --><!-- gold-sponsors -->
-
+<!-- gold-sponsors -->
+<!-- gold-sponsors -->
 
 <h2 align="center">Bronze Sponsors</h2>
 
-<!-- bronze-sponsors --><!-- bronze-sponsors -->
-
+<!-- bronze-sponsors -->
+<!-- bronze-sponsors -->
 
 <h2 align="center">Generous Backers</h2>
 
-<!-- generous-backers --><!-- generous-backers -->
-
+<!-- generous-backers -->
+<!-- generous-backers -->
 
 <h2 align="center">Backers</h2>
 
-<!-- backers --><!-- backers -->
+<!-- backers -->
+<!-- backers -->

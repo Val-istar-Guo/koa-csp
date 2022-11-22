@@ -7,7 +7,6 @@ node_modules
 .github
 .nyc_output
 .vscode
-.DS_Store
 
 # Dev Config File
 .commitlintrc.yml
@@ -20,17 +19,3 @@ node_modules
 ava.config.js
 rollup.config.js
 tsconfig.json
-
-# Error Log
-npm-debug.log*
-yarn-error.log
-
-# Config File
-.eslintrc.json
-.eslintignore
-.editorconfig
-.babelrc
-yarn.lock
-
-# Test File
-test/
