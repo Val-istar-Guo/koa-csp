@@ -14,6 +14,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="1.0.14"></a>
+### [1.2.1](https://www.github.com/Val-istar-Guo/koa-csp/compare/v1.2.0...v1.2.1) (2023-03-27)
+
+
+### Bug Fixes
+
+* package don't work without '--ignore-scripts' ([b8d001e](https://www.github.com/Val-istar-Guo/koa-csp/commit/b8d001efaf10112ac99b81790662bc880b494a2a)), closes [#11](https://www.github.com/Val-istar-Guo/koa-csp/issues/11)
+
 ## [1.2.0](https://www.github.com/Val-istar-Guo/koa-csp/compare/v1.1.1...v1.2.0) (2022-11-22)
 
 
