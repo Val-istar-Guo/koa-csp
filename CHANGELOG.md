@@ -14,6 +14,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="1.0.14"></a>
+### [1.2.2](https://www.github.com/Val-istar-Guo/koa-csp/compare/v1.2.1...v1.2.2) (2024-01-16)
+
+
+### Bug Fixes
+
+* invalid policy name form-action and report-uri ([43d4894](https://www.github.com/Val-istar-Guo/koa-csp/commit/43d489455c58e08a690be81f0c3d9335c4376170))
+
 ### [1.2.1](https://www.github.com/Val-istar-Guo/koa-csp/compare/v1.2.0...v1.2.1) (2023-03-27)
 
 
