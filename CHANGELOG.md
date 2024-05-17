@@ -14,6 +14,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="1.0.14"></a>
+### [1.2.3](https://www.github.com/Val-istar-Guo/koa-csp/compare/v1.2.2...v1.2.3) (2024-05-17)
+
+
+### Bug Fixes
+
+* add missing directives ([eee1df1](https://www.github.com/Val-istar-Guo/koa-csp/commit/eee1df14eacea66b10322914527398a7e40be231))
+
 ### [1.2.2](https://www.github.com/Val-istar-Guo/koa-csp/compare/v1.2.1...v1.2.2) (2024-01-16)
 
 
