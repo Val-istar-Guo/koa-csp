@@ -22,7 +22,7 @@
   "scripts": {
     "build": "npm run clean && ./build/build.sh",
     "clean": "rm -rf ./dist/*",
-    "dev": "npm run clean && ./build/watch.sh",
+    "dev": "npm run clean && ./build/dev.sh",
     "prepare": "ts-patch install -s && is-ci || husky",
     "prepublishOnly": "npm run build",
     "release": "standard-version",
