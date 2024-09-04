@@ -23,7 +23,7 @@
     "build": "npm run clean && ./build/build.sh",
     "clean": "rm -rf ./dist/*",
     "dev": "npm run clean && ./build/watch.sh",
-    "prepare": "ts-patch install -s && is-ci || husky install",
+    "prepare": "ts-patch install -s && is-ci || husky",
     "prepublishOnly": "npm run build",
     "release": "standard-version",
     "release:alpha": "standard-version --prerelease alpha",
