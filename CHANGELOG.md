@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.5](https://github.com/Val-istar-Guo/koa-csp/compare/v1.2.4...v1.2.5) (2024-09-04)
+
+
+### Bug Fixes
+
+* cannot import package in esm ([03dd043](https://github.com/Val-istar-Guo/koa-csp/commit/03dd0431dd7685f051bbd58a56a7620413b36fef))
+
+
+### Miscellaneous Chores
+
+* release 1.2.5 ([0cd1821](https://github.com/Val-istar-Guo/koa-csp/commit/0cd1821b0dd83f6f62c26fe084c6129b3ca3d1da))
+
 ### [1.2.4](https://www.github.com/Val-istar-Guo/koa-csp/compare/v1.2.3...v1.2.4) (2024-09-04)
 
 
