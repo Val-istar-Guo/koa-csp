@@ -1,6 +1,6 @@
 {
   "name": "koa-csp",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Used to set respose header: Content-Security-Policy",
   "packageManager": "pnpm@8.14.0",
   "main": "dist/umd/src/index.js",
