@@ -4,6 +4,12 @@ on:
       - master
       - main
 name: Release
+
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
