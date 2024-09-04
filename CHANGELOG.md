@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.6](https://github.com/Val-istar-Guo/koa-csp/compare/v1.2.5...v1.2.6) (2024-09-04)
+
+
+### Continuous Integration
+
+* cannot publish ([8a37f97](https://github.com/Val-istar-Guo/koa-csp/commit/8a37f971585590da490616fbcc49bf039f62f693))
+
 ## [1.2.5](https://github.com/Val-istar-Guo/koa-csp/compare/v1.2.4...v1.2.5) (2024-09-04)
 
 
