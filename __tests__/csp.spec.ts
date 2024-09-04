@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { expect, jest, test } from '@jest/globals'
 import csp from '../src'
-import test from 'ava'
-import * as sinon from 'sinon'
 
 
-test('default option', async t => {
+test('default option', async () => {
   const header = {}
   const ctx: any = {
     set(key, val) {
@@ -12,14 +11,14 @@ test('default option', async t => {
     },
   }
 
-  const callback = sinon.fake()
+  const callback = jest.fn(async () => {})
   await csp()(ctx, () => callback())
 
-  t.true(callback.calledOnce)
-  t.is(header['Content-Security-Policy'], "default-src 'self'")
+  expect(callback).toBeCalledTimes(1)
+  expect(header['Content-Security-Policy']).toBe("default-src 'self'")
 })
 
-test('default option.policy', async t => {
+test('default option.policy', async () => {
   const header = {}
   const ctx: any = {
     set(key, val) {
@@ -29,10 +28,10 @@ test('default option.policy', async t => {
 
   await csp({ enableWarn: false })(ctx, () => Promise.resolve())
 
-  t.is(header['Content-Security-Policy'], "default-src 'self'")
+  expect(header['Content-Security-Policy']).toBe("default-src 'self'")
 })
 
-test('custom setting csp(opts) test', async t => {
+test('custom setting csp(opts) test', async () => {
   const header = {}
   const ctx: any = {
     set(key, val) {
@@ -49,10 +48,10 @@ test('custom setting csp(opts) test', async t => {
 
   await csp({ policy })(ctx, () => Promise.resolve())
 
-  t.is(header['Content-Security-Policy'], expectStr)
+  expect(header['Content-Security-Policy']).toBe(expectStr)
 })
 
-test('camel case policy', async t => {
+test('camel case policy', async () => {
   const header = {}
   const ctx: any = {
     set(key, val) {
@@ -69,10 +68,10 @@ test('camel case policy', async t => {
 
   await csp({ enableWarn: false, policy })(ctx, () => Promise.resolve())
 
-  t.is(header['Content-Security-Policy'], expectStr)
+  expect(header['Content-Security-Policy']).toBe(expectStr)
 })
 
-test('invalid custom setting csp(opts) test', async t => {
+test('invalid custom setting csp(opts) test', async () => {
   const header = {}
   const ctx: any = {
     set(key, val) {
@@ -88,5 +87,5 @@ test('invalid custom setting csp(opts) test', async t => {
   const expectStr = 'script-src script.example.com'
 
   await csp({ enableWarn: false, policy })(ctx, () => Promise.resolve())
-  t.is(header['Content-Security-Policy'], expectStr)
+  expect(header['Content-Security-Policy']).toBe(expectStr)
 })

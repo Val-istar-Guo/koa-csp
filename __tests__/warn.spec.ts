@@ -1,13 +1,18 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { afterEach } from 'node:test'
 import csp from '../src'
-import test from 'ava'
-import * as sinon from 'sinon'
+import { beforeAll, expect, jest, test } from '@jest/globals'
 
 
-test.afterEach(() => {
-  sinon.restore()
+beforeAll(() => {
+  jest.spyOn(console, 'warn')
 })
 
-test.serial('illegal directive warn', async t => {
+afterEach(() => {
+  (console.warn as jest.Mock).mockClear()
+})
+
+test('illegal directive warn', async () => {
   const header = {}
   const ctx: any = {
     set(key, val) {
@@ -20,13 +25,12 @@ test.serial('illegal directive warn', async t => {
     'script-src': ['script.example.com'],
   }
 
-  sinon.replace(console, 'warn', sinon.fake())
   await csp({ enableWarn: true, policy })(ctx, () => Promise.resolve())
-  t.true(console.warn['calledOnce'])
-  t.true(console.warn['calledWithMatch']('[kpa-csp warn] Invalid Policy Name: image-src'))
+  expect(console.warn).toBeCalledTimes(1)
+  expect(console.warn).toBeCalledWith('[koa-csp warn] Invalid Policy Name: image-src')
 })
 
-test.serial('empty policy warn', async t => {
+test('empty policy warn', async () => {
   const header = {}
   const ctx: any = {
     set(key, val) {
@@ -34,13 +38,13 @@ test.serial('empty policy warn', async t => {
     },
   }
 
-  sinon.replace(console, 'warn', sinon.fake())
   await csp({ policy: {} })(ctx, () => Promise.resolve())
-  t.true(console.warn['calledOnce'])
-  t.true(console.warn['calledWithMatch']('[kpa-csp warn] Empty Policy'))
+  console.log((console.warn as jest.Mock).mock.calls)
+  expect(console.warn).toBeCalledTimes(1)
+  expect(console.warn).toBeCalledWith('[koa-csp warn] Empty Policy')
 })
 
-test.serial('camel case no warn', async t => {
+test('camel case no warn', async () => {
   const header = {}
   const ctx: any = {
     set(key, val) {
@@ -53,8 +57,7 @@ test.serial('camel case no warn', async t => {
     scriptSrc: ['script.example.com'],
   }
 
-  sinon.replace(console, 'warn', sinon.fake())
   await csp({ enableWarn: true, policy })(ctx, () => Promise.resolve())
 
-  t.false(console.warn['called'])
+  expect(console.warn).toBeCalledTimes(0)
 })

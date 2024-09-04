@@ -5,7 +5,7 @@ import toCamelCase from './to-camel-case'
 
 const directivesWithCamelCase = directives.concat(directives.map(toCamelCase))
 
-export default function(policy: Policy): boolean {
+export default function (policy: Policy): boolean {
   const keys = Object.keys(policy)
   let valid = true
 
@@ -15,7 +15,7 @@ export default function(policy: Policy): boolean {
   }
 
   const invalidDirectives = keys
-    .filter(key => !directivesWithCamelCase.includes(key))
+    .filter((key) => !directivesWithCamelCase.includes(key))
 
   if (invalidDirectives.length) {
     log.warn(`Invalid Policy Name: ${invalidDirectives.join(', ')}`)

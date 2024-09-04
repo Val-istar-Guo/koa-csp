@@ -38,12 +38,12 @@ interface Options {
  * @param {string[]} param.policy.webrtcSrc
  * @param {string[]} param.policy.workerSrc
  */
-export default function({ enableWarn = defaultParams.enableWarn, policy = defaultParams.policy }: Options = defaultParams): Middleware {
+export default function ({ enableWarn = defaultParams.enableWarn, policy = defaultParams.policy }: Options = defaultParams): Middleware {
   return (ctx, next) => {
     if (enableWarn) validatePolicy(policy)
 
     const policyStr = formatPolicy(policy)
-      .map(directive => directive.join(' '))
+      .map((directive) => directive.join(' '))
       .join(';')
 
     ctx.set('Content-Security-Policy', policyStr)
