@@ -1,0 +1,16 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../dist/cjs",
+    "module": "CommonJS",
+    "target": "esnext",
+    "preserveWatchOutput": true,
+    "resolveJsonModule": false,
+    "plugins": [
+      { "transform": "typescript-transform-paths" },
+      { "transform": "typescript-transform-paths", "afterDeclarations": true }
+    ]
+  },
+  "include": ["../src/**/*.ts"],
+  "exclude": ["../src/**/*.spec.ts"]
+}

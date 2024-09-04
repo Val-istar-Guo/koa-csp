@@ -1,7 +1,7 @@
-import directives from './directives'
-import { Policy } from './interface/policy'
-import repareSingleQuotes from './repare-single-quotes'
-import toCamelCase from './to-camel-case'
+import directives from './directives.js'
+import { Policy } from './interface/policy.js'
+import repareSingleQuotes from './repare-single-quotes.js'
+import toCamelCase from './to-camel-case.js'
 
 
 export default function (policy: Policy): string[][] {

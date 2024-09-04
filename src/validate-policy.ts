@@ -1,7 +1,7 @@
-import directives from './directives'
-import { Policy } from './interface/policy'
-import * as log from './log'
-import toCamelCase from './to-camel-case'
+import directives from './directives.js'
+import { Policy } from './interface/policy.js'
+import * as log from './log.js'
+import toCamelCase from './to-camel-case.js'
 
 const directivesWithCamelCase = directives.concat(directives.map(toCamelCase))
 

@@ -1,7 +1,7 @@
-import { Middleware } from 'koa'
-import validatePolicy from './validate-policy'
-import formatPolicy from './format-policy'
-import { Policy } from './interface/policy'
+import type { Middleware } from 'koa'
+import validatePolicy from './validate-policy.js'
+import formatPolicy from './format-policy.js'
+import { Policy } from './interface/policy.js'
 
 
 // default config

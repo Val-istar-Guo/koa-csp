@@ -5,7 +5,11 @@
     "module": "esnext",
     "target": "esnext",
     "preserveWatchOutput": true,
-    "resolveJsonModule": false
+    "resolveJsonModule": false,
+    "plugins": [
+      { "transform": "typescript-transform-paths" },
+      { "transform": "typescript-transform-paths", "afterDeclarations": true }
+    ]
   },
   "include": ["../src/**/*.ts"],
   "exclude": ["../src/**/*.spec.ts"]
